@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 class IntroController extends Controller
 {
     public function show(){
-        return view ('showui');
+        $todos = [
+            'Learn Laravel',
+            'Learn Vue',
+            'Learn Inertia'
+        ];
+        $title ='Hello Laravel , This is showUi.';
+        return view ('showui', compact('todos','title'));
     }
     
-    public function about(){
-        return view ('about');
-    }
-
-    public function contact(){
-        return view ('contact');
-    }
+    public function testfun(){
+        return view('test.testui');
+    } 
+        
 }
