@@ -7,5 +7,12 @@ rosources
     -hello.blade.php
 
 
-
  Route -> [Controller, method] -> this mkethod -> call view
+
+  Template Building
+  - view('testing.name')
+  - @include('path')
+  - public -> folder -> css / js / images
+  - asset('')
+
+- main structure -> layout.blade.php
