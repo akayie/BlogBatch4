@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\StudentController;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -21,3 +23,4 @@ Route::get('/contact', [App\Http\Controllers\TemplateController::class, 'contact
 Route::get('/table', [App\Http\Controllers\BackendTemplateController::class, 'tablefun'])->name('tablepage');
 
 Route::resource('categories', CategoryController::class);
+Route::resource('students', StudentController::class);

@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\Student;
 
-class CategoryController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('backend.category.list',compact('categories'));
+        $students = Student::all();
+        return view('backend.student.list',compact('students'));
     }
 
     /**
@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create');
+        return view('backend.student.create');
 
     }
 
@@ -33,19 +33,28 @@ class CategoryController extends Controller
         // var_dump ($request->all());
         // die();
         $request->validate([
-            'categoryName' => 'required',
+            'studentName' => 'required',
+            'studentAge' => 'required',
+            'studentGender' => 'required',
+            'studentAddress' => 'nullable',
         ]);
         
-        $categoryName = $request->categoryName;
+        $studentName = $request->studentName;
+        $studentAge = $request->studentAge;
+        $studentGender = $request->studentGender;
+        $studentAddress = $request->studentAddress;
 
-        // store into database table
-        Category::create([
-            'name' => $categoryName,
-        ]);
-        // return $categoryName;
+
+       Student::create([
+        'name' => $studentName,
+        'age' => $studentAge,
+        'gender' => $studentGender,
+        'address' => $studentAddress,
+    ]);
+        // return $studentName;
         // redirect to list page (index)
 
-        return redirect()->route('categories.index');
+        return redirect()->route('students.index');
     }
 
     /**
@@ -53,7 +62,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-            return view('backend.category.detail', compact('id'));
+            return view('backend.student.detail', compact('id'));
 
     }
 
@@ -62,7 +71,7 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        return view('backend.category.edit', compact('id'));
+        return view('backend.student.edit', compact('id'));
     }
 
     /**
@@ -78,9 +87,9 @@ class CategoryController extends Controller
      */
    public function destroy(string $id)
 {
-    $category = Category::findOrFail($id);
-    $category->delete();
-    return redirect()->route('categories.index');
+    $student = Student::findOrFail($id);
+    $student->delete();
+    return redirect()->route('students.index');
 }
 
 }
