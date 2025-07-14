@@ -24,7 +24,7 @@
                             <th>Age</th>
                             <th>Gender</th>
                             <th>Address</th>
-                            <th>Action</th>                            
+                            <th>Actions</th>                            
                         </tr>
                     </thead>
                     <tbody>
@@ -40,7 +40,7 @@
                                 <form action="{{route('students.destroy',$student->id)}}" method="POST" class="d-inline-block">
                                 @method('DELETE')
                                 @csrf
-                           <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Destroy</button>
+                           <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                             </form>
                         </td>
                         </tr>

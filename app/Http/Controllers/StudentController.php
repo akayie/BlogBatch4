@@ -12,7 +12,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+    $students = Student::orderBy('id', 'desc')->get();
         return view('backend.student.list',compact('students'));
     }
 
@@ -33,12 +33,20 @@ class StudentController extends Controller
         // var_dump ($request->all());
         // die();
         $request->validate([
-            'studentName' => 'required',
-            'studentAge' => 'required',
-            'studentGender' => 'required',
-            'studentAddress' => 'nullable',
+            'studentName' => 'required|min:3',
+            'studentAge' => 'required|numeric',
+        'studentGender' => 'required|in:male,female',
+                    'studentAddress' => 'nullable',
         ]);
         
+        // Obj 
+        // $student = new Student();
+        // $student->name = $request->studentName;
+        // $student->age = $request->studentAge;
+        // $student->gender = $request->studentGender;
+        // $student->address = $request->studentAddress;
+        // $student->save();
+
         $studentName = $request->studentName;
         $studentAge = $request->studentAge;
         $studentGender = $request->studentGender;

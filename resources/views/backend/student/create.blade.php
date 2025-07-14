@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Student Create</h1>
+    <h1 class="h3 mb-2 text-gray-800"> Create Student</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank"
             href="https://datatables.net">official
@@ -50,8 +50,8 @@
                         <select name="studentGender" id="gender"
                             class="form-control w-50 @error('studentGender') is-invalid @enderror">
                             <option value="">-- Select Gender --</option>
-                            <option value="0" {{ old('studentGender')=='0' ? 'selected' : '' }}>Male</option>
-                            <option value="1" {{ old('studentGender')=='1' ? 'selected' : '' }}>Female</option>
+                            <option value="male">Male</option>
+                            <option value="female" >Female</option>
                         </select>
                         @error('studentGender')
                         <span class="invalid-feedback d-block" role="alert">
